@@ -5,6 +5,7 @@ const cors = require('cors');
 import { createInvestmentRouter } from './routes/create';
 import { getInvestmentRouter } from './routes/list';
 import { editInvestmentRouter } from './routes/edit';
+import { deleteInvestmentRouter } from './routes/delete';
 
 const app = express();
 app.set('trust proxy', true);
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(createInvestmentRouter);
 app.use(getInvestmentRouter);
 app.use(editInvestmentRouter);
+app.use(deleteInvestmentRouter);
 
 app.all('*', async (req: Request, res: Response) => {
   throw new Error();
